@@ -1,0 +1,18 @@
+version: "3.13"
+
+services: # сервисы
+  db:
+    container_name: "pg_dev" # имя контейнера
+    image: postgres:16.2-alpine3.18 # образ базы данных
+    environment: # переменные окружения
+      - POSTGRES_USER=postgres # присвоение должно быть без пробелов вокруг знака равно!!!!
+      - POSTGRES_PASSWORD=postgres # присвоение должно быть без пробелов вокруг знака равно!!!!
+      - POSTGRES_DB=postgres # присвоение должно быть без пробелов вокруг знака равно!!!!
+    ports:
+      - "5432:5432" # порт базы данных и порт Докера
+    networks:
+      - networking # имя сети
+    restart: always # тип рестарта при неисправностях
+networks: # сети
+  networking: # имя сети
+    driver: bridge # используемый драйвер
