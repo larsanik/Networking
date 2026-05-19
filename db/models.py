@@ -13,4 +13,4 @@ class User(Base):
     surname = Column(String(255), nullable=False)
     email = Column(String(255), nullable=False, unique=True)
     about_me = Column(String(255), nullable=False)
-    as_active = Column(Boolean, default=True)
+    is_active = Column(Boolean, default=True)
