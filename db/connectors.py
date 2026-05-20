@@ -1,5 +1,4 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
-#from sqlalchemy.orm import sessionmaker
 
 from settings import settings as SETTINGS
 
@@ -13,3 +12,10 @@ engine = create_async_engine(
                                 echo=True,
                                 connect_args={"ssl": False}) # отключаем ssl
 pg_session = async_sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
+
+async def get_db_session() -> AsyncSession:
+    try:
+        session: AsyncSession = pg_session()
+        yield session
+    finally:
+        await session.close()
