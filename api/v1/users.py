@@ -10,13 +10,14 @@ from api.v1.handlers import (get_all_users,
                              post_new_user,
                              delete_user_by_email,
                              update_user_by_email
-)
+                             )
 from api.v1.models import User, CreateUser
 from db.connectors import get_db_session
 
 # Берем в качестве идентификатора email. Считаем, что он будет уникальным.
 
 router = APIRouter()
+
 
 @router.get("/", response_model=List[User])
 async def get_users(session: AsyncSession = Depends(get_db_session)):
@@ -27,6 +28,7 @@ async def get_users(session: AsyncSession = Depends(get_db_session)):
                             detail="Users not found")
 
     return users
+
 
 @router.get("/{email}", response_model=User)
 async def get_user(email: EmailStr,
@@ -39,6 +41,7 @@ async def get_user(email: EmailStr,
 
     return user
 
+
 @router.post("/", response_model=User)
 async def add_user(user: CreateUser,
                    session: AsyncSession = Depends(get_db_session)):
@@ -49,6 +52,7 @@ async def add_user(user: CreateUser,
                             detail="User not created")
 
     return user
+
 
 @router.delete("/{email}", response_model=EmailStr)
 async def del_user(email: EmailStr,
@@ -65,7 +69,7 @@ async def del_user(email: EmailStr,
 @router.patch("/{email}", response_model=str)
 async def update_user(email: EmailStr,
                       about: str,
-                   session: AsyncSession = Depends(get_db_session)):
+                      session: AsyncSession = Depends(get_db_session)):
     success = await update_user_by_email(session, email=email, about=about)
 
     if not success:
