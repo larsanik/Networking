@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title> Card </title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header class="container mx-auto bg-sky-300">
+        <div class="flex justify-between">
+            <span class="font-bold text-3x py-1 px-4 my-1">My card</span>
+            <div>
+                <button onclick="document.location='../index'" class="bg-lime-100 hover:bg-lime-400 font-bold py-1 px-4 my-1 rounded-full">Back</button>
+                <button class="bg-lime-100 hover:bg-lime-400 font-bold py-1 px-4 my-1 rounded-full">Exit</button>
+            </div>
+        </div>
+    </header>
+
+</body>
+</html>
