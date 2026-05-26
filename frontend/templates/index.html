@@ -1,0 +1,17 @@
+{% extends "base.html"}
+
+{% block head %}
+<script>
+    const showCard = () => {
+        const emailValue = document.getElementById("email_search").value;
+        window.location.href = 'pages/card/${emailValue}';
+    }
+</script>
+{% endblock %}
+
+{% block card %}
+<div class="flex justify-center">
+    <input  id="email_search" type="text" placeholder="Enter email" class="mt-2 mb-2">
+    <button onclick="showCard()" class="bg-lime-100 hover:bg-lime-400 font-bold py-1 px-4 mt-2 mb-2 rounded-full">Show</button>
+</div>
+{% endblock %}
