@@ -1,0 +1,24 @@
+{% extends "base.html"}
+
+{% block card %}
+    <img src="{{ url_for('static', path='bird.svg') }}" alt="My profile picture" class="w-40 h-40 pr-4 border-black">
+    <table class="border-separate border border-slate-400 my-2">
+           <tr>
+               <th class="border border-slate-300 ...">Name</th>
+               <td class="border border-slate-300 ...">{{ user.name }}</td>
+           </tr>
+           <tr>
+               <th class="border border-slate-300 ...">Surname</th>
+               <td class="border border-slate-300 ...">{{ user.surname }}</td>
+           </tr>
+           <tr>
+               <th class="border border-slate-300 ...">Email</th>
+               <td class="border border-slate-300 ...">{{ user.email }}</td>
+           </tr>
+           <tr>
+               <th class="border border-slate-300 ...">About</th>
+               <td class="border border-slate-300 ...">{{ user.about }}</td>
+           </tr>
+    </table>
+
+{% endblock %}
