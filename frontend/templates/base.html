@@ -11,12 +11,16 @@
     <header class="container mx-auto bg-sky-300">
         <div class="flex justify-between">
             <span class="font-bold text-3x py-1 px-4 my-1">My card</span>
-            <div>
+            <div class="space-x-2 mx-3">
                 <button onclick="document.location='../index'" class="bg-lime-100 hover:bg-lime-400 font-bold py-1 px-4 my-1 rounded-full">Back</button>
                 <button class="bg-lime-100 hover:bg-lime-400 font-bold py-1 px-4 my-1 rounded-full">Exit</button>
             </div>
         </div>
     </header>
+
+    <main id="card" class="container mx-auto bg-emerald-100">
+        {% block card %}{% endblock %}
+    </main>
 
 </body>
 </html>
