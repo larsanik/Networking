@@ -11,4 +11,12 @@ class ConnectorSettings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env.dev.pg", env_prefix="pg_")
 
 
+class JWTSettings(BaseSettings):
+    secret: SecretStr
+    reset: SecretStr
+
+    model_config = SettingsConfigDict(env_file=".env.dev.jwt", env_prefix="jwt_")
+
+
 settings = ConnectorSettings()
+secret = JWTSettings()
