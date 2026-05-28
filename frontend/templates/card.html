@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block card %}
+<div class="flex justify-center mx-2">
     <img src="{{ url_for('static', path='bird.svg') }}" alt="My profile picture" class="w-40 h-40 pr-4 border-black">
     <table class="border-separate border border-slate-400 my-2">
            <tr>
@@ -20,5 +21,5 @@
                <td class="border border-slate-300 ...">{{ user.about }}</td>
            </tr>
     </table>
-
+</div>
 {% endblock %}
